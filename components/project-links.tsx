@@ -1,0 +1,63 @@
+import { Coffee, Github, type LucideIcon } from "lucide-react";
+import { siX, type SimpleIcon } from "simple-icons";
+
+type ProjectLink = {
+  href: string;
+  label: string;
+  title: string;
+  icon?: LucideIcon;
+  simpleIcon?: SimpleIcon;
+  featured?: boolean;
+};
+
+const projectLinks: ProjectLink[] = [
+  {
+    href: "https://github.com/apoorvdarshan/crossposter",
+    label: "Star",
+    title: "Star Crossposter on GitHub",
+    icon: Github,
+    featured: true
+  },
+  {
+    href: "https://x.com/apoorvdarshan",
+    label: "Follow",
+    title: "Follow @apoorvdarshan on X",
+    simpleIcon: siX
+  },
+  {
+    href: "https://ko-fi.com/apoorvdarshan",
+    label: "Ko-fi",
+    title: "Support on Ko-fi",
+    icon: Coffee
+  }
+];
+
+export function ProjectLinks() {
+  return (
+    <div className="project-links" aria-label="Project links">
+      {projectLinks.map((link) => {
+        const Icon = link.icon;
+
+        return (
+          <a
+            className={`project-link${link.featured ? " project-link-featured" : ""}`}
+            href={link.href}
+            key={link.href}
+            rel="noreferrer"
+            target="_blank"
+            title={link.title}
+          >
+            {link.simpleIcon ? (
+              <svg aria-hidden="true" className="project-link-brand" viewBox="0 0 24 24">
+                <path d={link.simpleIcon.path} />
+              </svg>
+            ) : Icon ? (
+              <Icon size={15} />
+            ) : null}
+            <span>{link.label}</span>
+          </a>
+        );
+      })}
+    </div>
+  );
+}

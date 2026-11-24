@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crossposter - Local Social Publishing Dashboard</title>
+    <meta
+      name="description"
+      content="Crossposter is a local-first dashboard for composing once, attaching media, checking limits, and publishing to connected social accounts from localhost."
+    >
+    <meta name="author" content="Apoorv Darshan">
+    <meta name="application-name" content="Crossposter">
+    <meta
+      name="keywords"
+      content="Crossposter, crossposting, social media publishing, local-first, self-hosted, social media scheduler, X, LinkedIn, Bluesky, Mastodon, Instagram, YouTube, Dev.to, Pinterest, Hacker News, Nostr, Dribbble"
+    >
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f4f6f0" media="(prefers-color-scheme: light)">
+    <link rel="canonical" href="https://crossposter.apoorvdarshan.com/">
+    <link rel="me" href="https://github.com/apoorvdarshan">
+    <link rel="me" href="https://x.com/apoorvdarshan">
+    <meta property="og:site_name" content="Crossposter">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://crossposter.apoorvdarshan.com/">
+    <meta property="og:title" content="Crossposter - Local Social Publishing Dashboard">
+    <meta property="og:description" content="Compose once, attach media, check platform limits, and publish to connected social accounts from localhost.">
+    <meta property="og:image" content="https://crossposter.apoorvdarshan.com/assets/opengraph.png">
+    <meta property="og:image:url" content="https://crossposter.apoorvdarshan.com/assets/opengraph.png">
+    <meta property="og:image:secure_url" content="https://crossposter.apoorvdarshan.com/assets/opengraph.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Crossposter hero image showing local social publishing targets.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@apoorvdarshan">
+    <meta name="twitter:creator" content="@apoorvdarshan">
+    <meta name="twitter:domain" content="crossposter.apoorvdarshan.com">
+    <meta name="twitter:url" content="https://crossposter.apoorvdarshan.com/">
+    <meta name="twitter:title" content="Crossposter - Local Social Publishing Dashboard">
+    <meta name="twitter:description" content="Compose once, attach media, check platform limits, and publish to connected social accounts from localhost.">
+    <meta name="twitter:image" content="https://crossposter.apoorvdarshan.com/assets/opengraph.png">
+    <meta name="twitter:image:alt" content="Crossposter hero image showing local social publishing targets.">
+    <link rel="icon" href="assets/logo-crossposter.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/logo-crossposter.png">
+    <link rel="preload" as="image" href="assets/hero-social-backdrop.png" fetchpriority="high">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://crossposter.apoorvdarshan.com/#website",
+            "name": "Crossposter",
+            "url": "https://crossposter.apoorvdarshan.com/",
+            "description": "Local-first social publishing dashboard for accounts you control.",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://crossposter.apoorvdarshan.com/#person"
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://crossposter.apoorvdarshan.com/#software",
+            "name": "Crossposter",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Self-hosted",
+            "url": "https://crossposter.apoorvdarshan.com/",
+            "image": "https://crossposter.apoorvdarshan.com/assets/opengraph.png",
+            "screenshot": "https://crossposter.apoorvdarshan.com/assets/opengraph.png",
+            "description": "Compose once, attach media, check platform limits, and publish to connected social accounts from localhost.",
+            "codeRepository": "https://github.com/apoorvdarshan/crossposter",
+            "license": "https://github.com/apoorvdarshan/crossposter/blob/main/LICENSE",
+            "author": {
+              "@id": "https://crossposter.apoorvdarshan.com/#person"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "featureList": [
+              "Local-first publishing dashboard",
+              "Media uploads and platform limit checks",
+              "Scheduled posts and local publish history",
+              "Provider readiness cards for connected social accounts"
+            ]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://crossposter.apoorvdarshan.com/#person",
+            "name": "Apoorv Darshan",
+            "url": "https://github.com/apoorvdarshan",
+            "sameAs": [
+              "https://github.com/apoorvdarshan",
+              "https://x.com/apoorvdarshan"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://crossposter.apoorvdarshan.com/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is Crossposter free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Crossposter is free and open source under the MIT license. Install it with brew install apoorvdarshan/tap/crossposter or run it with npx — there is no account, subscription, or paid tier."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Which social media platforms does Crossposter support?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Eleven, from one composer: X / Twitter, LinkedIn, Bluesky, Mastodon, Instagram, YouTube, Dev.to, Pinterest, Hacker News, Nostr, and Dribbble."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I schedule posts to multiple social networks at once?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Compose once, pick the target accounts, then publish now or schedule for later. The scheduler runs from your own local or self-hosted Crossposter server."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is Crossposter a self-hosted, local social media scheduler?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Crossposter is local-first: it runs on http://localhost:2004 or your own server, with no database and no third-party backend."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where are my credentials and drafts stored?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "On your machine. Tokens, sessions, drafts, media, scheduled posts, and history stay in poster.config.local.json and local folders — nothing is sent to a Crossposter cloud."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I cross-post to X and LinkedIn at the same time?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Connect both accounts in Settings, select them as targets on the dashboard, write the post once, and publish. Crossposter sends it to every selected account and shows per-platform results."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("crossposter-web-theme") || "dark";
+      } catch {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:wght@400..800&family=JetBrains+Mono:wght@400..700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Crossposter home">
+        <img src="assets/logo-crossposter.png" alt="" width="40" height="40">
+        <span>Crossposter</span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="#start"><img src="assets/ui/start.svg" alt="">Start</a>
+        <a href="#providers"><img src="assets/ui/providers.svg" alt="">Providers</a>
+        <a href="#limits"><img src="assets/ui/limits.svg" alt="">Limits</a>
+        <a href="#policy"><img src="assets/ui/policy.svg" alt="">Policy</a>
+        <a href="https://github.com/apoorvdarshan/crossposter/issues/new" rel="noreferrer" target="_blank"><img src="assets/social/issue.svg" alt="">Report issue</a>
+        <button class="theme-button" type="button" aria-label="Switch to light mode" aria-pressed="true">
+          <img src="assets/ui/moon.svg" alt="">
+          <span aria-hidden="true">Dark</span>
+        </button>
+        <a class="nav-button" href="https://github.com/apoorvdarshan/crossposter" rel="noreferrer" target="_blank"><img src="assets/social/github.svg" alt="">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero" aria-labelledby="hero-title">
+        <div class="hero-visual" aria-hidden="true">
+          <img src="assets/hero-social-backdrop.png" alt="" width="1717" height="916" fetchpriority="high" decoding="async">
+        </div>
+        <div class="hero-logo-cloud" aria-hidden="true">
+          <span><img src="assets/social/x.svg" alt=""></span>
+          <span><img src="assets/social/linkedin.svg" alt=""></span>
+          <span><img src="assets/social/bluesky.svg" alt=""></span>
+          <span><img src="assets/social/instagram.svg" alt=""></span>
+          <span><img src="assets/social/youtube.svg" alt=""></span>
+          <span><img src="assets/social/pinterest.svg" alt=""></span>
+          <span><img src="assets/social/hackernews.svg" alt=""></span>
+          <span><img src="assets/social/dribbble.svg" alt=""></span>
+        </div>
+        <a class="back-link" href="https://github.com/apoorvdarshan/crossposter" rel="noreferrer" target="_blank">Open-source local publisher</a>
+        <div class="hero-center">
+          <p class="eyebrow">Crossposter for your own accounts</p>
+          <h1 id="hero-title">
+            <span>Publish</span>
+            <span>everywhere</span>
+            <span>from localhost.</span>
+          </h1>
+          <p class="hero-copy">
+            Compose once, attach media, check platform limits, and post to connected
+            socials from a local/self-hosted server you control.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#start">Run locally</a>
+            <a class="button secondary" href="https://github.com/apoorvdarshan/crossposter" rel="noreferrer" target="_blank">View source</a>
+          </div>
+          <div class="command-panel hero-terminal" aria-label="Install command">
+            <div class="command-head">
+              <span>Terminal</span>
+              <button class="copy-button" type="button" data-copy-target="hero-install-command">Copy</button>
+            </div>
+            <pre><code id="hero-install-command">brew install apoorvdarshan/tap/crossposter</code></pre>
+          </div>
+        </div>
+
+        <div class="hero-grid">
+          <article class="hero-summary">
+            <p>
+              Crossposter keeps the publishing workflow close to the app itself:
+              one composer, provider readiness cards, local history, scheduled
+              posts, and warnings only when selected socials would reject a draft.
+            </p>
+            <div class="meta-row" aria-label="Project details">
+              <span>15 targets</span>
+              <span>Local files</span>
+              <span>MIT</span>
+            </div>
+            <div class="related-link">
+              <span>Related link</span>
+              <a href="https://github.com/apoorvdarshan/crossposter" rel="noreferrer" target="_blank">Repository</a>
+            </div>
+          </article>
+
+          <aside class="best-for" aria-labelledby="best-for-title">
+            <h2 id="best-for-title">Best for</h2>
+            <ul>
+              <li>Publishing the same launch update to many owned accounts.</li>
+              <li>Keeping credentials and drafts on your machine.</li>
+              <li>Testing media and text limits before sending.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="target-strip" aria-labelledby="target-strip-title">
+        <div>
+          <p class="section-kicker">Targets</p>
+          <h2 id="target-strip-title">Social surfaces already wired in.</h2>
+        </div>
+        <div class="target-icons" aria-label="Supported provider logos">
+          <img src="assets/social/x.svg" alt="X">
+          <img src="assets/social/linkedin.svg" alt="LinkedIn">
+          <img src="assets/social/bluesky.svg" alt="Bluesky">
+          <img src="assets/social/mastodon.svg" alt="Mastodon">
+          <img src="assets/social/instagram.svg" alt="Instagram">
+          <img src="assets/social/youtube.svg" alt="YouTube">
+          <img src="assets/social/devto.svg" alt="Dev.to">
+          <img src="assets/social/pinterest.svg" alt="Pinterest">
+          <img src="assets/social/hackernews.svg" alt="Hacker News">
+          <img src="assets/social/nostr.svg" alt="Nostr">
+          <img src="assets/social/dribbble.svg" alt="Dribbble">
+        </div>
+      </section>
+
+      <section class="prompt-card" aria-labelledby="prompt-title">
+        <div>
+          <p class="section-kicker">Start locally</p>
+          <h2 id="prompt-title">One terminal, one private publishing console.</h2>
+        </div>
+        <div class="command-panel">
+          <div class="command-head">
+            <span>Terminal</span>
+            <button class="copy-button" type="button" data-copy-target="install-commands">Copy</button>
+          </div>
+          <pre><code id="install-commands">brew install apoorvdarshan/tap/crossposter
+crossposter</code></pre>
+        </div>
+      </section>
+
+      <div class="docs-shell">
+        <aside class="docs-sidebar" aria-label="Documentation navigation">
+          <label for="docs-search">Search docs</label>
+          <input id="docs-search" type="search" placeholder="Search Crossposter docs">
+          <nav aria-label="Sections">
+            <a href="#start">Start locally</a>
+            <a href="#workflow">Workflow</a>
+            <a href="#providers">Providers</a>
+            <a href="#setup">Setup</a>
+            <a href="#limits">Limits</a>
+            <a href="#media">Media</a>
+            <a href="#security">Security</a>
+            <a href="#policy">Privacy & terms</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </aside>
+
+        <div class="docs-content">
+          <section id="start" class="doc-section" data-search="start quickstart install homebrew brew npm npx localhost local">
+            <div class="section-kicker">Quickstart</div>
+            <h2>Run Crossposter locally.</h2>
+            <p>
+              The publishing dashboard runs at <code>http://localhost:2004</code>.
+              Run it from any local folder; Crossposter keeps config, uploads, sessions,
+              and drafts in that folder.
+            </p>
+            <div class="note-grid">
+              <article>
+                <span>01</span>
+                <strong>Run</strong>
+                <p>Install with <code>brew install apoorvdarshan/tap/crossposter</code>, run <code>crossposter</code>, and open localhost.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <strong>Configure</strong>
+                <p>Add provider profiles from the app settings UI.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <strong>Publish</strong>
+                <p>Select ready channels and send or schedule the draft.</p>
+              </article>
+            </div>
+            <div class="command-grid">
+              <article>
+                <span>Homebrew · recommended</span>
+                <pre><code>brew install apoorvdarshan/tap/crossposter
+crossposter</code></pre>
+              </article>
+              <article>
+                <span>Auto-start on macOS</span>
+                <pre><code>brew services start crossposter
+brew services stop crossposter</code></pre>
+              </article>
+              <article>
+                <span>Run without installing</span>
+                <pre><code>npx @apoorvdarshan/crossposter@latest</code></pre>
+              </article>
+            </div>
+          </section>
+
+          <section id="workflow" class="doc-section" data-search="workflow compose schedule publish history profiles local config">
+            <div class="section-kicker">Workflow</div>
+            <h2>Built for repeated posting, not marketing bloat.</h2>
+            <div class="feature-grid">
+              <article>
+                <span>Compose</span>
+                <h3>One work surface</h3>
+                <p>Title, link, post body, and media stay visible while you choose targets.</p>
+              </article>
+              <article>
+                <span>Preflight</span>
+                <h3>Warnings when needed</h3>
+                <p>Text and media limits only appear when a selected social would reject the draft.</p>
+              </article>
+              <article>
+                <span>History</span>
+                <h3>Results stay local</h3>
+                <p>Successful links and provider failures are saved together in local publish history.</p>
+              </article>
+              <article>
+                <span>Schedule</span>
+                <h3>Queue from localhost</h3>
+                <p>Scheduled posts run from the same self-hosted Crossposter server.</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="providers" class="doc-section" data-search="providers x twitter linkedin bluesky mastodon instagram youtube devto pinterest hacker news nostr dribbble">
+            <div class="section-kicker">Providers</div>
+            <h2>Current publishing targets.</h2>
+            <div class="provider-list">
+              <article><img src="assets/social/x.svg" alt="" width="42" height="42"><strong>X / Twitter</strong><span>headless browser · text/media/video</span></article>
+              <article><img src="assets/social/linkedin.svg" alt="" width="42" height="42"><strong>LinkedIn</strong><span>OAuth · profiles/pages</span></article>
+              <article><img src="assets/social/bluesky.svg" alt="" width="42" height="42"><strong>Bluesky</strong><span>app password · text/images</span></article>
+              <article><img src="assets/social/mastodon.svg" alt="" width="42" height="42"><strong>Mastodon</strong><span>access token · text/media</span></article>
+              <article><img src="assets/social/instagram.svg" alt="" width="42" height="42"><strong>Instagram</strong><span>signed-in browser · images/video</span></article>
+              <article><img src="assets/social/youtube.svg" alt="" width="42" height="42"><strong>YouTube</strong><span>InnerTube · video upload</span></article>
+              <article><img src="assets/social/devto.svg" alt="" width="42" height="42"><strong>Dev.to</strong><span>API key · markdown articles</span></article>
+              <article><img src="assets/social/pinterest.svg" alt="" width="42" height="42"><strong>Pinterest</strong><span>py3-pinterest · Pins</span></article>
+              <article><img src="assets/social/hackernews.svg" alt="" width="42" height="42"><strong>Hacker News</strong><span>form flow · link/text</span></article>
+              <article><img src="assets/social/nostr.svg" alt="" width="42" height="42"><strong>Nostr</strong><span>local key · relays</span></article>
+              <article><img src="assets/social/dribbble.svg" alt="" width="42" height="42"><strong>Dribbble</strong><span>OAuth · shots</span></article>
+            </div>
+            <div class="disclaimer-box">
+              <h3>Unofficial provider notice</h3>
+              <p>
+                Crossposter mixes official APIs with local, unofficial integrations. X / Twitter,
+                Instagram, YouTube, Pinterest, and Hacker News may use your own browser
+                sessions, saved cookies, private APIs, third-party tools, or normal web submit
+                flows, all running locally. Instagram signs in to a dedicated, isolated browser
+                once per account and reuses that real session (no stored password, no fake mobile
+                login), but it is still automation, not an official API. Use these only with
+                accounts you own or manage, and keep posting occasional and human-paced.
+              </p>
+            </div>
+          </section>
+
+          <section id="setup" class="doc-section" data-search="setup credentials oauth cookies sessions passwords tokens board id">
+            <div class="section-kicker">Setup</div>
+            <h2>Credentials stay local.</h2>
+            <div class="split-list">
+              <article>
+                <h3>Official APIs</h3>
+                <p>LinkedIn and Dribbble use OAuth. Bluesky, Mastodon, Dev.to, and Nostr use app passwords, access tokens, or local keys.</p>
+              </article>
+              <article>
+                <h3>Local sessions</h3>
+                <p>X, Instagram, YouTube, Pinterest, and Hacker News use your own browser sessions, local cookies, tools, or normal submit flows. Instagram signs in to a dedicated, isolated browser once per account.</p>
+              </article>
+              <article>
+                <h3>Multiple profiles</h3>
+                <p>Provider profiles are saved in <code>poster.config.local.json</code>. Pick which accounts to post to per publish on the dashboard.</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="limits" class="doc-section" data-search="limits characters media title post premium">
+            <div class="section-kicker">Limits</div>
+            <h2>Known limits are checked before publishing.</h2>
+            <div class="limit-table" tabindex="0">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Provider</th>
+                    <th>Title</th>
+                    <th>Post</th>
+                    <th>Media</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>X / Twitter</td><td>Post text</td><td>280 chars</td><td>5 MB photo, 15 MB GIF, 512 MB or 16 GB video with Premium</td></tr>
+                  <tr><td>LinkedIn</td><td>Post text</td><td>3,000 chars</td><td>Images and MP4 up to 500 MB</td></tr>
+                  <tr><td>Bluesky</td><td>Post text</td><td>300 chars</td><td>Images up to 1 MB</td></tr>
+                  <tr><td>Mastodon</td><td>Post text</td><td>500 chars</td><td>16 MB image, about 99 MB video</td></tr>
+                  <tr><td>Instagram</td><td>Caption</td><td>2,200 chars</td><td>8 MB image, 300 MB video</td></tr>
+                  <tr><td>YouTube</td><td>100 chars</td><td>5,000 char description</td><td>Video up to 256 GB or 12 hours</td></tr>
+                  <tr><td>Dev.to</td><td>128 non-space chars</td><td>800 KB body</td><td>Local media ignored</td></tr>
+                  <tr><td>Pinterest</td><td>100 chars</td><td>800 char description</td><td>20 MB image, 100 MB video</td></tr>
+                  <tr><td>Hacker News</td><td>80 chars</td><td>Optional text</td><td>Local media ignored</td></tr>
+                  <tr><td>Dribbble</td><td>Required</td><td>Description</td><td>400x300 or 800x600, up to 8 MB</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="media" class="doc-section" data-search="media compression conversion image video dribbble crop upload">
+            <div class="section-kicker">Media</div>
+            <h2>Compression and crop tools are built in.</h2>
+            <div class="feature-grid compact">
+              <article>
+                <span>IMG</span>
+                <h3>Image compression</h3>
+                <p>Convert images to JPG with quality, target size, and estimated output size controls.</p>
+              </article>
+              <article>
+                <span>MP4</span>
+                <h3>Video conversion</h3>
+                <p>Transcode supported video to MP4 when that can satisfy a selected platform.</p>
+              </article>
+              <article>
+                <span>4:3</span>
+                <h3>Dribbble crop</h3>
+                <p>Crop non-GIF images to Dribbble's required 400x300 or 800x600 shot sizes.</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="security" class="doc-section" data-search="security private local secrets sessions passwords cookies">
+            <div class="section-kicker">Security</div>
+            <h2>Private by convention.</h2>
+            <ul class="check-list">
+              <li>Keep <code>poster.config.local.json</code> private.</li>
+              <li>Never commit API keys, OAuth tokens, cookies, passwords, or session files.</li>
+              <li>Use <code>POSTER_REQUIRE_ADMIN_PASSWORD=true</code> before public hosting.</li>
+              <li>Only connect accounts, pages, boards, channels, and profiles you own or manage.</li>
+            </ul>
+          </section>
+
+          <section id="policy" class="doc-section policy" data-search="privacy terms data policy effective date local">
+            <div class="section-kicker">Privacy & terms</div>
+            <h2>Policy lives here, not in separate Markdown files.</h2>
+            <p class="effective">Effective date: June 4, 2026</p>
+            <div class="split-list">
+              <article>
+                <h3>Privacy</h3>
+                <p>Crossposter stores credentials, titles, links, draft text, media, scheduled posts, and publish history in your local or self-hosted environment.</p>
+              </article>
+              <article>
+                <h3>Third parties</h3>
+                <p>Content is sent only to the social platforms selected during publishing. This website is hosted on Cloudflare Pages and does not use application tracking cookies.</p>
+              </article>
+              <article>
+                <h3>Terms</h3>
+                <p>Use Crossposter only with accounts you control. You are responsible for platform rules, API terms, automation rules, and content policies.</p>
+              </article>
+              <article>
+                <h3>Unofficial flows</h3>
+                <p>Unofficial integrations can break when platforms change and may trigger challenges, rate limits, failed posts, or account restrictions.</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="faq" class="doc-section" data-search="faq questions free open source self-hosted local social media scheduler crosspost multiple platforms accounts schedule privacy x twitter linkedin instagram">
+            <div class="section-kicker">FAQ</div>
+            <h2>Frequently asked questions.</h2>
+            <div class="split-list">
+              <article>
+                <h3>Is Crossposter free?</h3>
+                <p>Yes. Crossposter is free and open source under the MIT license. Install it with <code>brew install apoorvdarshan/tap/crossposter</code> or run it with npx — there is no account, subscription, or paid tier.</p>
+              </article>
+              <article>
+                <h3>Which social media platforms does it support?</h3>
+                <p>Eleven, from one composer: X / Twitter, LinkedIn, Bluesky, Mastodon, Instagram, YouTube, Dev.to, Pinterest, Hacker News, Nostr, and Dribbble.</p>
+              </article>
+              <article>
+                <h3>Can I schedule posts to multiple social networks at once?</h3>
+                <p>Yes. Compose once, pick the target accounts, then publish now or schedule for later. The scheduler runs from your own local or self-hosted Crossposter server.</p>
+              </article>
+              <article>
+                <h3>Is it a self-hosted, local social media scheduler?</h3>
+                <p>Yes. Crossposter is local-first: it runs on <code>http://localhost:2004</code> or your own server, with no database and no third-party backend.</p>
+              </article>
+              <article>
+                <h3>Where are my credentials and drafts stored?</h3>
+                <p>On your machine. Tokens, sessions, drafts, media, scheduled posts, and history stay in <code>poster.config.local.json</code> and local folders — nothing is sent to a Crossposter cloud.</p>
+              </article>
+              <article>
+                <h3>How do I cross-post to X and LinkedIn at the same time?</h3>
+                <p>Connect both accounts in Settings, select them as targets on the dashboard, write the post once, and publish. Crossposter sends it to every selected account and shows per-platform results.</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="contact" class="doc-section contact-section" data-search="contact github x email ko-fi issue support">
+            <div class="section-kicker">Project links</div>
+            <h2>Source, support, and contact.</h2>
+            <div class="contact-grid">
+              <a href="https://github.com/apoorvdarshan/crossposter" rel="noreferrer" target="_blank">
+                <span class="contact-mark"><img src="assets/social/github.svg" alt=""></span>
+                <span class="contact-label">GitHub</span>
+                <strong>Repository</strong>
+              </a>
+              <a href="https://github.com/apoorvdarshan/crossposter/issues/new" rel="noreferrer" target="_blank">
+                <span class="contact-mark"><img src="assets/social/issue.svg" alt=""></span>
+                <span class="contact-label">Issues</span>
+                <strong>Report an issue</strong>
+              </a>
+              <a href="https://x.com/apoorvdarshan" rel="noreferrer" target="_blank">
+                <span class="contact-mark"><img src="assets/social/x.svg" alt=""></span>
+                <span class="contact-label">Follow</span>
+                <strong>@apoorvdarshan</strong>
+              </a>
+              <a href="mailto:apoorvdarshan@gmail.com">
+                <span class="contact-mark"><img src="assets/social/email.svg" alt=""></span>
+                <span class="contact-label">Email</span>
+                <strong>apoorvdarshan@gmail.com</strong>
+              </a>
+              <a href="https://ko-fi.com/apoorvdarshan" rel="noreferrer" target="_blank">
+                <span class="contact-mark"><img src="assets/social/kofi.svg" alt=""></span>
+                <span class="contact-label">Support</span>
+                <strong>Ko-fi</strong>
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>Crossposter</span>
+      <a href="https://github.com/apoorvdarshan/homebrew-tap" rel="noreferrer" target="_blank">Homebrew</a>
+      <a href="https://github.com/apoorvdarshan/crossposter" rel="noreferrer" target="_blank">GitHub</a>
+      <a href="https://github.com/apoorvdarshan/crossposter/issues/new" rel="noreferrer" target="_blank">Report issue</a>
+      <a href="https://ko-fi.com/apoorvdarshan" rel="noreferrer" target="_blank">Ko-fi</a>
+      <a href="mailto:apoorvdarshan@gmail.com">Email</a>
+      <a href="https://x.com/apoorvdarshan" rel="noreferrer" target="_blank">Follow</a>
+    </footer>
+
+    <button class="back-to-top" type="button" aria-label="Back to top">Top</button>
+    <script src="app.js"></script>
+  </body>
+</html>
